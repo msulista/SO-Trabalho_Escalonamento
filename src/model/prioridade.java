@@ -15,8 +15,10 @@ import java.util.List;
 public class prioridade {
     
     private List<Processo> processos;
-    private int contador;
-    private int acumulador;
+    private int cont;
+    private int maior;
+    private int numero;
+    
 
     public prioridade() {
         this.processos = new ArrayList<>();
@@ -27,24 +29,21 @@ public class prioridade {
         this.processos.add(new Processo("processo 1", 1));
     }
     
-    public String executaProcessosPorPrioridade(){
-        
-        while (contador > 0) {
-            for (Processo processo : processos) {
+    public String executaProcessosPorPrioridade(){        
+        while (processos.size() > 0) {            
             
-            }
         }
         return "";
-        
     }
     
-    public int verificaAMaiorPrioridade(){
-        for(int i = 0; i > processos.size() ; i++){
-           
-                if(processos.get(i).getPrioridade() > acumulador){
-                    acumulador = processos.get(i).getPrioridade();
-                }
+    public int maiorProcesso(){
+        this.maior = processos.get(0).getPrioridade();
+        numero = maior;
+        int cont = 0;
+        while (numero > maior) {   
+            cont++;
+            numero = processos.get(cont).getPrioridade();
+            maior = numero;
         }
-        return acumulador;
     }
 }
