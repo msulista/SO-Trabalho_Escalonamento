@@ -10,27 +10,33 @@ package model;
  * @author marcus.rodrigues
  */
 public class Processo {
-    
-    private int prioridade;
-    private int  tempoExecução;
-    private String tipoProcesso;
-    private int tamanho;
+
     private String nome;
+    private int tempoExe;
+    private int prioridade;
 
     public Processo() {
     }
 
-    public Processo(String nome, int prioridade) {
+    public Processo(String nome, int tempoExe) {
         this.nome = nome;
-        this.prioridade = prioridade;
+        this.tempoExe = tempoExe;
     }
 
-    public Processo(int prioridade, int tempoExecução, String tipoProcesso, int tamanho) {
-        this.prioridade = prioridade;
-        this.tempoExecução = tempoExecução;
-        this.tipoProcesso = tipoProcesso;
-        this.tamanho = tamanho;
-        
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getTempoExe() {
+        return tempoExe;
+    }
+
+    public void setTempoExe(int tempoExe) {
+        this.tempoExe = tempoExe;
     }
 
     public int getPrioridade() {
@@ -41,30 +47,8 @@ public class Processo {
         this.prioridade = prioridade;
     }
 
-    public int getTempoExecução() {
-        return tempoExecução;
+    @Override
+    public String toString() {
+        return "Nome: " + nome + ", Tempo Execucao:" + tempoExe;
     }
-
-    public void setTempoExecução(int tempoExecução) {
-        this.tempoExecução = tempoExecução;
-    }
-
-    public String getTipoProcesso() {
-        return tipoProcesso;
-    }
-
-    public void setTipoProcesso(String tipoProcesso) {
-        this.tipoProcesso = tipoProcesso;
-    }
-
-    public int getTamanho() {
-        return tamanho;
-    }
-
-    public void setTamanho(int tamanho) {
-        this.tamanho = tamanho;
-    }
-    
-    
-    
 }
