@@ -16,6 +16,7 @@ public class Prioridade {
     private int cont;
     private int maior;
     private int numero;
+    private int tempoEspera;
     
 
     public Prioridade() {
@@ -40,6 +41,7 @@ public class Prioridade {
             
             if(maiorPrioridade < processos.get(i).getPrioridade()){
                 maiorPrioridade = processos.get(i).getPrioridade();
+                tempoEspera = tempoEspera + processos.get(i).getTempoExe();
                 indice = i;
             }            
         }
