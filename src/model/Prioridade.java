@@ -16,7 +16,7 @@ public class Prioridade {
     private int cont;
     private int maior;
     private int numero;
-    private int tempoEspera;
+    private int tempoEspera = 0;
     
 
     public Prioridade() {
@@ -28,24 +28,36 @@ public class Prioridade {
         int tamanhoFila = processos.size();
         
         for (int i = 0; i < tamanhoFila; i++) {
-            System.out.println("Executando processo com prioridade " + maiorPrioridade(processos));
+            //System.out.println("Executando processo com prioridade " + maiorPrioridade(processos));
+            Processo proc = processoComMaiorPrioridade(processos);
+            System.out.println("Executando processo com prioridade: " + proc.getNome() );
+            System.out.println("Prioridade: " + proc.getPrioridade());
+            System.out.println("Tempo Execução: " + proc.getTempoExe());
+            System.out.println("Tempo de espera: " + tempoEspera);
+            System.out.println("");
+            tempoEspera += proc.getTempoExe();
+            removeProcesso(processos, proc.getId());
         }
+        System.out.println("Tempo médio de espera: " + tempoEspera/tamanhoFila);
+        System.err.println("\n\n");
         return "\nFim do Algoritimo de execução por Prioridade.\n\n";
-    }
-    
-    public int maiorPrioridade(List<Processo> processos){
+    }    
+ 
+    public Processo processoComMaiorPrioridade(List<Processo> processos){
         int maiorPrioridade = 0;
         int indice = 666;
         
         for (int i = 0; i < processos.size(); i++) {
             
             if(maiorPrioridade < processos.get(i).getPrioridade()){
-                maiorPrioridade = processos.get(i).getPrioridade();
-                tempoEspera = tempoEspera + processos.get(i).getTempoExe();
+                maiorPrioridade = processos.get(i).getPrioridade();                
                 indice = i;
             }            
-        }
-        processos.remove(indice);
-        return maiorPrioridade;
+        }    
+        processos.get(indice).setId(indice);
+        return processos.get(indice);
+    }    
+    public void removeProcesso(List<Processo> processos, int i){
+        processos.remove(i);
     }
 }
