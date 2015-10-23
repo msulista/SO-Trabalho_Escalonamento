@@ -14,6 +14,7 @@ public class Processo {
     private String nome;
     private int tempoExe;
     private int prioridade;
+    private int id;
 
     public Processo() {
     }
@@ -47,6 +48,15 @@ public class Processo {
         this.prioridade = prioridade;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    
     @Override
     public String toString() {
         return "Nome: " + nome + ", Tempo Execucao:" + tempoExe;
