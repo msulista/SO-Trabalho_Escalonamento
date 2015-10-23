@@ -30,16 +30,17 @@ public class Prioridade {
         for (int i = 0; i < tamanhoFila; i++) {
             //System.out.println("Executando processo com prioridade " + maiorPrioridade(processos));
             Processo proc = processoComMaiorPrioridade(processos);
+            System.out.println("--------------------------------------------------------");
             System.out.println("Executando processo com prioridade: " + proc.getNome() );
             System.out.println("Prioridade: " + proc.getPrioridade());
             System.out.println("Tempo Execução: " + proc.getTempoExe());
             System.out.println("Tempo de espera: " + tempoEspera);
-            System.out.println("");
+            System.out.println("---------------------------------------------------------");
             tempoEspera += proc.getTempoExe();
             removeProcesso(processos, proc.getId());
         }
         System.out.println("Tempo médio de espera: " + tempoEspera/tamanhoFila);
-        System.err.println("\n\n");
+        System.err.println("\n------------////------------------\n");
         return "\nFim do Algoritimo de execução por Prioridade.\n\n";
     }    
  
